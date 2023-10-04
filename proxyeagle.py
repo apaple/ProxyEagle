@@ -74,7 +74,7 @@ def ProxyConnector(**info):
         if '200' or '301' in response:
             #print(response)
             goods += f"{info['proxy']}:{info['port']}\n"
-            with open('goods.txt',"a+")as file:
+            with open('proxy.txt',"a+")as file:
                 file.write(f"{info['proxy']}:{info['port']}\n")
             return f"\033[32mGood proxy: \033[33m{info['proxy']}:{info['port']}\033[0m"
         else:
@@ -102,7 +102,7 @@ def Main():
         print(f"\033[31mFile: \033[33m\'{argv[2]}\'\033[0m does not exist in the current directory\033[0m")
         exit(-1)
     
-    pool = ThreadPoolExecutor(max_workers=61)
+    pool = ThreadPoolExecutor(max_workers=91)
     hosts = []
     ports = []
     proxyWhiteSpaceFix = ct.split("\n")
